@@ -21,3 +21,7 @@ def index():
     return render_template("index.html")
 
 
+
+@app.errorhandler(404)
+def bad_request(e):
+    return render_template("404.html")
