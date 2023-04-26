@@ -1,8 +1,16 @@
 from smtplib import SMTP
+import os
+from dotenv import load_dotenv
 
 
-KEY = "psmieqvitnjplcmj"
-SENDER = "batkar.fest@gmail.com"
+load_dotenv()
+
+
+
+
+
+KEY = os.getenv("SMPTP_KEY")
+SENDER = os.getenv("SMPTP_SENDER_MAIL")
 
 class MailSender:
     
@@ -14,13 +22,13 @@ class MailSender:
         self.mail_server = mail_server
         self.port = port
 
-    def send_password_link(self, receiver, link):
+    def send_ticket(self, receiver, link):
         with SMTP(self.mail_server, self.port) as connection:  
             connection.starttls()  
             connection.login(self.sender_mail, password=self.token)  
             connection.sendmail(from_addr=self.sender_mail,
                                             to_addrs=receiver,
-                                            msg=f"Subject:Reset Password!\n\nYou can reset your password by following the link below:\n\n{link}")
+                                            msg=f"Subject:Bilet!\n\nBiletin hazır lütfen aşağıdaki linke girerek biletine hemen kavuş !!!\n\n{link}")
 
 
 sender = MailSender(token=KEY, sender_mail=SENDER)
