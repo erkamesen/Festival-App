@@ -9,8 +9,8 @@ load_dotenv()
 
 
 
-KEY = os.getenv("SMPTP_KEY")
-SENDER = os.getenv("SMPTP_SENDER_MAIL")
+KEY = os.getenv("SMTP_KEY")
+SENDER = os.getenv("SMTP_SENDER_MAIL")
 
 class MailSender:
     
@@ -28,12 +28,12 @@ class MailSender:
             connection.login(self.sender_mail, password=self.token)  
             connection.sendmail(from_addr=self.sender_mail,
                                             to_addrs=receiver,
-                                            msg=f"Subject:Bilet!\n\nBiletin hazır lütfen aşağıdaki linke girerek biletine hemen kavuş !!!\n\n{link}")
+                                            msg=f"Subject:Bilet!\n\nBiletin hazir lutfen asagidaki linke girerek biletine hemen kavus !!!\n\n{link}")
 
 
 sender = MailSender(token=KEY, sender_mail=SENDER)
 
-sender.send_password_link(receiver="erkamesen789@gmail.com", link="deneme.com")
+sender.send_ticket(receiver="erkamesen789@gmail.com", link="deneme.com")
 
 
 
