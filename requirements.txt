@@ -1,4 +1,0 @@
-Flask==2.2.3
-flask_sqlalchemy==3.0.3
-iyzipay==1.0.32
-python-dotenv==1.0.0

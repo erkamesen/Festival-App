@@ -12111,6 +12111,7 @@ body{margin-top:20px;
 
 /* Full-width input fields */
 .form-container input[type=text],
+.form-container input[type=email],
 .form-container input[type=password] {
     width: 100%;
     padding: 15px;

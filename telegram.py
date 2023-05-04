@@ -4,8 +4,7 @@ import requests
 class Condition(Enum):
 
     INFO = "✅"
-    DISCOUNT = "🤑"
-    WARNING = "🚨"
+
 
 class Logger:
 
@@ -32,8 +31,3 @@ class Logger:
     def info(self, message):
         self.log(message, Condition.INFO)
         
-    def discount(self, message):
-        self.log(message, Condition.DISCOUNT)
-        
-    def warning(self, message):
-        self.log(message, Condition.WARNING)

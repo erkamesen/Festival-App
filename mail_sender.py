@@ -22,18 +22,25 @@ class MailSender:
         self.mail_server = mail_server
         self.port = port
 
-    def send_ticket(self, receiver, link):
-        with SMTP(self.mail_server, self.port) as connection:  
-            connection.starttls()  
-            connection.login(self.sender_mail, password=self.token)  
-            connection.sendmail(from_addr=self.sender_mail,
-                                            to_addrs=receiver,
-                                            msg=f"Subject:Bilet!\n\nBiletin hazir lutfen asagidaki linke girerek biletine hemen kavus !!!\n\n{link}")
+    def send_ticket(self, receiver, name, link):
+        try:
+            with SMTP(self.mail_server, self.port) as connection:  
+                connection.starttls()  
+                connection.login(self.sender_mail, password=self.token)  
+                connection.sendmail(from_addr=self.sender_mail,
+                                                to_addrs=receiver,
+                                                msg=f"Subject:Bilet!\n\nSevgili {name} seni aramizda gormekten cok mutluyuz !\n\
+Biletin hazir lutfen asagidaki linke tiklayip biletine hemen kavus !!!\n\n{link}")
+        except:
+            with open("unsend_mails.txt", "a") as f:
+                f.write(f"{receiver} mailini alamadi istiyorsan kendisine ulas ve yardim et.")
 
 
-sender = MailSender(token=KEY, sender_mail=SENDER)
 
-sender.send_ticket(receiver="erkamesen789@gmail.com", link="deneme.com")
+
+if __name__ == "__main__":
+    sender = MailSender(token=KEY, sender_mail=SENDER)
+    sender.send_ticket(receiver="erkamesen789@gmail.com", link="deneme.com")
 
 
 
