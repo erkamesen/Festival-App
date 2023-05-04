@@ -1,314 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Festival Page">
-    <meta name="author" content="erkamesen">
-    <title>BatKar Festival</title>
-
-    <!-- font icons -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/themify-icons/css/themify-icons.css')}}">
-
-    <!-- Bootstrap + Creative Studio main styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/creative-studio.css')}}">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-</head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    {% include "head.html" %} <!-- <head> tag here -->
 
     <!-- Page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-lg navbar-dark" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ url_for('static', filename='imgs/logo.png') }}">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com/batkarfestival/" target="_blank"> <i
-                                class="ti-instagram"></i></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Etkinlikler</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Harita</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonial">Ekibe Katıl</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">İletişim</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary btn-sm ml-lg-3" href="#pricing">Bilet Al</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include "navbar.html" %} <!-- NAVBAR -->
     <!-- End Of Page Navigation -->
 
     <!-- Page Header -->
-    <header class="header">
-        <div class="overlay">
-            <br><br>
-            <div class="buttons text-center">
-                <a href="#pricing" class="btn btn-primary rounded w-lg btn-lg my-1">Bilet Al</a>
-                <a href="#contact" class="btn btn-outline-light rounded w-lg btn-lg my-1">Bize Ulaş</a>
-            </div>
-        </div>
-    </header>
+    {% include "header.html" %} <!-- Festival picture with logo -->
     <!-- End Of Page Header -->
 
     <!-- Box -->
-    <div class="box text-center">
-        <div class="box-item">
-
-            <h6 class="box-title" style="color: #f7a093; font-weight:bolder;">Gerekli Önlemler</h6>
-            <p>
-                Kamp alanının yeterince büyük olduğundan sosyal mesafe konusunda sıkıntı yaşanmayacaktır.
-                Jandarma ve özel güvenlik görevlileri tarafından 24 Saat Emniyet sağlanacaktır.
-            </p>
-        </div>
-        <div class="box-item">
-
-            <h6 class="box-title" style="color: #f7a093; font-weight:bolder;">Biz Kimiz ?</h6>
-            <p>
-                BATKAR Karabük ve Çevre illerde 2016'dan itibaren yüzlerce etkinlikler düzenleyen bir topluluktur.
-                Daha önceki etkinliklerimize sayfalarımızdan girip bakabilirsiniz.
-            </p>
-        </div>
-        <div class="box-item">
-
-            <h6 class="box-title" style="color: #f7a093; font-weight:bolder;">Kamp Alanı</h6>
-            <p>
-                Safranbolu Kent Ormanı, 3 gün boyunca kamp etkinliğimize özel olup şehir merkezine çok yakındır.
-                Alanda otopark, tuvalet, elektrik ve su devamlı bulunacaktır.
-            </p>
-        </div>
-        <div class="box-item">
-
-            <h6 class="box-title" style="color: #f7a093; font-weight:bolder;">Kamp Ücretleri</h6>
-            <p>Kamp Ücretleri her 15 günde bir değişecektir.
-                1 - 2 ve 3. Dönem avantajlı bilet satış fiyatlarımıza sayfamızın 'Bilet Al' bölümünden ulaşabilir ve
-                kolay bir şekilde
-                satın alabilirsiniz.
-
-            </p>
-        </div>
-    </div>
+    {% include "box.html" %}  <!-- 4 small Boxes under the header -->
     <!-- End of Box -->
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5 col-lg-3">
-                    <img src="{{ url_for('static', filename='img/4.jpeg')}}" alt="">
-                </div>
-                <div class="col-md-5 col-lg-6">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ url_for('static', filename='imgs/et1.png') }}"
-                                    class="w-100 img-thumbnail mb-3" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ url_for('static', filename='imgs/et2.png') }}"
-                                    class="w-100 img-thumbnail mb-3" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ url_for('static', filename='imgs/et3.png') }}"
-                                    class="w-100 img-thumbnail mb-3" alt="Third slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ url_for('static', filename='imgs/et4.png') }}"
-                                    class="w-100 img-thumbnail mb-3" alt="Third slide">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-5 col-lg-3">
-                    <img src="{{ url_for('static', filename='img/5.jpeg')}}" alt="">
-                </div>
-
-            </div>
-        </div>
-    </section>
+    {% include "about.html" %}    <!-- posters banners -->
     <!-- End of About Section -->
 
     <!-- About Section with bg -->
     <section class="has-bg-img py-md">
         <div class="container text-center">
-            <h6 class="section-subtitle">We See</h6>
-            <h6 class="section-title mb-6">What Other Don't See.</h6>
+            <h6 class="section-subtitle">Neden Biz ?</h6>
+            <h6 class="section-title mb-6">Farkımız</h6>
             <div class="widget mb-4">
                 <div class="widget-item">
                     <i class="ti-notepad"></i>
-                    <h4>Planning</h4>
+                    <h4>Sınırsız Eğlence</h4>
                 </div>
                 <div class="widget-item">
                     <i class="ti-layout"></i>
-                    <h4>Mockup</h4>
+                    <h4>Ücretsiz Ulaşım</h4>
                 </div>
                 <div class="widget-item">
                     <i class="ti-filter"></i>
-                    <h4>Develope</h4>
+                    <h4>Aktiviteler</h4>
                 </div>
                 <div class="widget-item">
                     <i class="ti-thumb-up"></i>
-                    <h4>Provide</h4>
+                    <h4>İkramlar</h4>
                 </div>
             </div>
         </div>
     </section>
     <!-- End Of About Sectoin -->
+    {% include "pricing.html" %}
 
-    <!-- Pricing Section -->
-    <section id="pricing">
-
-        <section id="pricing" class="pricing-content section-padding">
-            <div class="container">					
-                <div class="section-title text-center">
-                    <h2>Pricing Plans</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                </div>				
-                <div class="row text-center">									
-                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
-                        <div class="pricing_design">
-                            <div class="single-pricing">
-                                <div class="price-head">		
-                                    <h2>Starter</h2>
-                                    <h1>$0</h1>
-                                    <span>/Monthly</span>
-                                </div>
-                                <ul>
-                                    <li><b>15</b> website</li>
-                                    <li><b>50GB</b> Disk Space</li>
-                                    <li><b>50</b> Email</li>
-                                    <li><b>50GB</b> Bandwidth</li>
-                                    <li><b>10</b> Subdomains</li>
-                                    <li><b>Unlimited</b> Support</li>
-                                </ul>
-                                <div class="pricing-price">
-                                    
-                                </div>
-                                <a href="#" class="price_btn">Order Now</a>
-                            </div>
-                        </div>
-                    </div><!--- END COL -->	
-                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-                        <div class="pricing_design">
-                            <div class="single-pricing">
-                                <div class="price-head">		
-                                    <h2>Personal</h2>
-                                    <h1 class="price">$29</h1>
-                                    <span>/Monthly</span>
-                                </div>
-                                <ul>
-                                    <li><b>15</b> website</li>
-                                    <li><b>50GB</b> Disk Space</li>
-                                    <li><b>50</b> Email</li>
-                                    <li><b>50GB</b> Bandwidth</li>
-                                    <li><b>10</b> Subdomains</li>
-                                    <li><b>Unlimited</b> Support</li>
-                                </ul>
-                                <div class="pricing-price">
-                                    
-                                </div>
-                                <a href="#" class="price_btn">Order Now</a>
-                            </div>
-                        </div>
-                    </div><!--- END COL -->	
-                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
-                        <div class="pricing_design">
-                            <div class="single-pricing">
-                                <div class="price-head">		
-                                    <h2>Ultimate</h2>
-                                    <h1 class="price">$49</h1>
-                                    <span>/Monthly</span>
-                                </div>
-                                <ul>
-                                    <li><b>15</b> website</li>
-                                    <li><b>50GB</b> Disk Space</li>
-                                    <li><b>50</b> Email</li>
-                                    <li><b>50GB</b> Bandwidth</li>
-                                    <li><b>10</b> Subdomains</li>
-                                    <li><b>Unlimited</b> Support</li>
-                                </ul>
-                                <div class="pricing-price">
-                                    
-                                </div>
-                                <a href="#" class="price_btn">Order Now</a>
-                            </div>
-                        </div>
-                    </div><!--- END COL -->			  
-                </div><!--- END ROW -->
-            </div><!--- END CONTAINER -->
-        </section>
-    </section>
     <!-- End of Service Section -->
 
-    <!-- Portfolio section -->
-    <section id="portfolio">
-        <div class="container">
-            <h1 style="text-align: center;">Ulaşım</h1>
-            <div class="row align-items-center">
-                <div class="col-md-5 col-lg-6 col-sm-6">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.4910218421765!2d32.664071276485124!3d41.27641680287043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409caa88e8635b31%3A0xacdfce3da0cd327b!2sSafranbolu%20Kent%20Orman%C4%B1!5e0!3m2!1sen!2str!4v1682457875842!5m2!1sen!2str"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="col-md-5 col-lg-2">
-                </div>
-                <div class="col-md-5 col-lg-4">
-
-                    <p>Karabük içi ücretsiz Ulaşım imkanı sağlıyoruz !!</p>
-                    <p>Mekan ..</p>
-                    <p>Saat ..</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- End of portfolio section -->
+    <!-- Direction section -->
+    {% include "direction.html" %}
+    <!-- End of direction section -->
 
 
     <!-- Join US Section -->
@@ -317,119 +59,119 @@
             <h6 class="section-subtitle text-center">Kamp ve Etkinlik işlerini seviyor musun ?</h6>
             <h6 class="section-title text-center mb-6">Bize Katıl</h6>
             <form action="{{url_for('join_us')}}" method="post">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="testimonial-wrapper">
-                       
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="testimonial-wrapper">
+
                             <div class="input-group mb-3 col-md-6">
-                                <input type="text" class="form-control" placeholder="Ad Soyad" name="name" aria-label="name"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Ad Soyad" name="name"
+                                    aria-label="name" aria-describedby="basic-addon1">
                             </div>
 
                             <div class="input-group mb-3 col-md-6">
-                                <input type="text" class="form-control" placeholder="Email"
-                                    aria-label="Email" aria-describedby="basic-addon2" name="email">
+                                <input type="text" class="form-control" placeholder="Email" aria-label="Email"
+                                    aria-describedby="basic-addon2" name="email">
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                            <div class="row">
-                            <div class="col-md-4">
-                                <div class="radio">
-                                    <h3>Eğitim Durumu</h3>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            İlkokul
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault2" value="Lise">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Lise
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault3" value="Üniversite">
-                                        <label class="form-check-label" for="flexRadioDefault3">
-                                            Üniversite
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault4" value="Üniversite Mezunu" checked>
-                                        <label class="form-check-label" for="flexRadioDefault4">
-                                            Üniversite Mezunu
-                                        </label>
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="radio">
+                            <h3>Eğitim Durumu</h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    İlkokul
+                                </label>
                             </div>
-                                <div class="col-md-4">
-                                <div class="radio">
-                                    <h3>Kamp Etkinliğimize Nerden Gördünüz?</h3>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault5" value="Instagram Reklam">
-                                        <label class="form-check-label" for="flexRadioDefault5">
-                                            Instagram Reklam
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault6" value="Instagram Sayfaları">
-                                        <label class="form-check-label" for="flexRadioDefault6">
-                                            Instagram Sayfaları
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault7" value="Arkadaş Tavsiyesi">
-                                        <label class="form-check-label" for="flexRadioDefault7">
-                                            Arkadaş Tavsiyesi
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault8" value="Google Reklamları"checked>
-                                        <label class="form-check-label" for="flexRadioDefault8">
-                                            Google Reklamları
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="Lise">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Lise
+                                </label>
                             </div>
-                                <div class="col-md-4">
-                                <div class="radio">
-                                    <h3>Kamp deneyiminiz var mı?</h3>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault3"
-                                            id="flexRadioDefault9" value="Hayır yok ama ilgim var.">
-                                        <label class="form-check-label" for="flexRadioDefault9">
-                                            Hayır yok ama ilgim var.
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault3"
-                                            id="flexRadioDefault10" value="Kamp etkinliklerine katılırım.">
-                                        <label class="form-check-label" for="flexRadioDefault10">
-                                            Kamp etkinliklerine katılırım.
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault3"
-                                            id="flexRadioDefault11" value="Kamp organizasyonlarında görev aldım." checked >
-                                        <label class="form-check-label" for="flexRadioDefault11">
-                                            Kamp organizasyonlarında görev aldım.
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault3" value="Üniversite">
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    Üniversite
+                                </label>
                             </div>
-                        </div>        
-                        <button type="submit" class="btn btn-secondary">Gönder</button>
-            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault4" value="Üniversite Mezunu" checked>
+                                <label class="form-check-label" for="flexRadioDefault4">
+                                    Üniversite Mezunu
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="radio">
+                            <h3>Kamp Etkinliğimize Nerden Gördünüz?</h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                    id="flexRadioDefault5" value="Instagram Reklam">
+                                <label class="form-check-label" for="flexRadioDefault5">
+                                    Instagram Reklam
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                    id="flexRadioDefault6" value="Instagram Sayfaları">
+                                <label class="form-check-label" for="flexRadioDefault6">
+                                    Instagram Sayfaları
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                    id="flexRadioDefault7" value="Arkadaş Tavsiyesi">
+                                <label class="form-check-label" for="flexRadioDefault7">
+                                    Arkadaş Tavsiyesi
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                    id="flexRadioDefault8" value="Google Reklamları" checked>
+                                <label class="form-check-label" for="flexRadioDefault8">
+                                    Google Reklamları
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="radio">
+                            <h3>Kamp deneyiminiz var mı?</h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault3"
+                                    id="flexRadioDefault9" value="Hayır yok ama ilgim var.">
+                                <label class="form-check-label" for="flexRadioDefault9">
+                                    Hayır yok ama ilgim var.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault3"
+                                    id="flexRadioDefault10" value="Kamp etkinliklerine katılırım.">
+                                <label class="form-check-label" for="flexRadioDefault10">
+                                    Kamp etkinliklerine katılırım.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault3"
+                                    id="flexRadioDefault11" value="Kamp organizasyonlarında görev aldım." checked>
+                                <label class="form-check-label" for="flexRadioDefault11">
+                                    Kamp organizasyonlarında görev aldım.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Gönder</button>
+        </div>
         </form>
         </div>
     </section>
@@ -455,8 +197,8 @@
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <iframe width="100%" height="600" src="{{ url_for('static', filename='batkar_intro.mp4')}}" frameborder="0"
-                    allowfullscreen></iframe>
+                <iframe width="100%" height="600" src="{{ url_for('static', filename='batkar_intro.mp4')}}"
+                    frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -528,18 +270,18 @@
                             <p class="mt-3">
                                 Copyright
                                 <script>document.write(new Date().getFullYear())</script> &copy; <a
-                                    class="d-inline text-primary" href="http://www.devcrud.com">BatKar Fest </a>
+                                    class="d-inline text-primary" href="">BatKar Fest </a>
                             </p>
                         </li>
                     </ul>
-                
+
                     <ul class="list">
                         <li class="list-head">
                             <h6 class="font-weight-bold">Hesaplarımız</h6>
                         </li>
                         <li class="list-body">
-            
-                
+
+
                             <div class="social-links">
                                 <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
                                 <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
@@ -554,8 +296,6 @@
             </div>
         </div>
     </section>
-
-    <!-- core  -->
     <script src="{{ url_for('static', filename='vendors/jquery/jquery-3.4.1.js') }}"></script>
     <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.bundle.js') }}"></script>
 

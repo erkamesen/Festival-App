@@ -1,4 +1,4 @@
-import os, random, string
+import os, random, string, uuid
 
 
 
@@ -8,7 +8,7 @@ class Config(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
     
     # Set up the App SECRET_KEY
-    SECRET_KEY  = os.getenv('SECRET_KEY', None)
+    SECRET_KEY  = os.getenv('SECRET_KEY', uuid.uuid4().hex)
     if not SECRET_KEY:
         SECRET_KEY = ''.join(random.choice( string.ascii_lowercase  ) for i in range( 32 ))     
 

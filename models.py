@@ -14,7 +14,7 @@ class Join(db.Model):
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     ticket_no = db.Column(db.String)
-    ticket_Type = db.Column(db.String)
+    ticket_type = db.Column(db.String)
     price = db.Column(db.Integer)
     created_time = db.Column(db.String, default=time.time())
 

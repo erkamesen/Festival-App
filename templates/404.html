@@ -2,113 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Festival Page">
-    <meta name="author" content="erkamesen">
-    <title>BatKar Festival</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Festival Page">
+  <meta name="author" content="erkamesen">
+  <title>BatKar Festival</title>
 
-    <!-- font icons -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/themify-icons/css/themify-icons.css')}}">
+  <!-- font icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendors/themify-icons/css/themify-icons.css')}}">
 
-    <!-- Bootstrap + Creative Studio main styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/creative-studio.css')}}">
+  <!-- Bootstrap + Creative Studio main styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/creative-studio.css')}}">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
     integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 
 <style>
+  .home-text h1 {
+    text-shadow: 5px 7px #15183a;
+    margin: 20px 0;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    color: #cd5c85
+  }
 
+  .home-text h4 {
+    color: #cd5c85;
+    font-size: 24px;
+    font-weight: 600;
+  }
 
-      .home-text h1 {
-        text-shadow: 5px 7px #15183a;
-        margin: 20px 0;
-        font-size: 4rem;
-        font-weight: bold;
-        line-height: 1.1;
-        letter-spacing: 2px;
-        color:#cd5c85
-      }
-      .home-text h4 {
-        color: #cd5c85;
-        font-size: 24px;
-        font-weight: 600;
-      }
+  .home-text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
 
-      .home-text h3 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 3rem;
-      }
-    .error {
-        height: 100vh;
-        width: 100%;
-        position: relative;
-        background-color: #ead5d2;
-        background-image: url("{{ url_for('static', filename='imgs/404.png')}}");
-        text-align: center;
-        background-size: cover;
-        background-position: center;
-      }
-      .error a:link {
-        color: #eb4a4a
-      }
-      
-      .error a:visited {
-        color: #eb4a4a
-      }
-      
-      .error a:active {
-        color: #eb4a4a
-      }
-      
-      .error a:hover {
-        color: #ead5d2
-      }
-      
-      .backhome {
-        border-style: solid;
-        border: #020312;
-      }
-      
-      #backhome {
-        text-shadow: 4px 3px #333333;
-        border-style: solid;
-        border: 5px 5px 5px 5px;
-        font: bold 2.5rem Arial;
-        text-decoration: none;
-        background-color: rgba(235, 91, 135, 0.8);
-        color: #fffffd;
-        padding: 6px 6px 6px 6px;
-        border-top: 1px solid #CCCCCC;
-        border-right: 1px solid #333333;
-        border-bottom: 1px solid #333333;
-        border-left: 1px solid #CCCCCC;
-      }
-      
-      #backhome:hover {
-        background-color: rgba(255, 255, 255, 0.8);
-        color: #eb5b87;
-      }
+  .error {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #ead5d2;
+    background-image: url("{{ url_for('static', filename='imgs/404.png')}}");
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .error a:link {
+    color: #eb4a4a
+  }
+
+  .error a:visited {
+    color: #eb4a4a
+  }
+
+  .error a:active {
+    color: #eb4a4a
+  }
+
+  .error a:hover {
+    color: #ead5d2
+  }
+
+  .backhome {
+    border-style: solid;
+    border: #020312;
+  }
+
+  #backhome {
+    text-shadow: 4px 3px #333333;
+    border-style: solid;
+    border: 5px 5px 5px 5px;
+    font: bold 2.5rem Arial;
+    text-decoration: none;
+    background-color: rgba(235, 91, 135, 0.8);
+    color: #fffffd;
+    padding: 6px 6px 6px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+  }
+
+  #backhome:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #eb5b87;
+  }
 </style>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
-<section class="error" id="error">
+  <section class="error" id="error">
     <div class="home-text" style="width: 100%; height:100%; margin-top:10%;">
 
-      <h1>
-        404 <br> Not Found
-      </h1>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <h1>{{ message }}</h1>
+          {% endfor %}
+        {% else %}
+            <h1>
+              404 <br> Not Found
+            </h1>
+        {% endif %}
+      {% endwith %}
+      
       <div class="backhome">
-      <h2 style="font-size: 3rem; letter-spacing:7px;">
-       <a href="" id="backhome">Back Home !</a> 
-      </h2>
-    </div>
+        <h2 style="font-size: 3rem; letter-spacing:7px;">
+          <a href="" id="backhome">Back Home !</a>
+        </h2>
+      </div>
     </div>
   </section>
 </body>
