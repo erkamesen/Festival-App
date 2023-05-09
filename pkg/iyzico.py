@@ -95,12 +95,4 @@ class Iyzico:
         return json.loads(checkout_form_result.read().decode('utf-8'))
 
 
-if __name__ == "__main__":
-
-    checkout_form_initialize = iyzipay.CheckoutFormInitialize().create(
-        Iyzico.request, Iyzico.options)
-
-    data = json.loads(checkout_form_initialize.read().decode('utf-8'))
-    print(type(data))
-    print(data)
 

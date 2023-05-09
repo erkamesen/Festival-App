@@ -40,10 +40,9 @@ class Config(object):
 
             USE_SQLITE  = False
 
-        except Exception as e:
+        except:
 
-            print('> Error: DBMS Exception: ' + str(e) )
-            print('> Fallback to SQLite ')    
+            pass
 
     if USE_SQLITE:
 

@@ -3,7 +3,7 @@ import time
 
 db = SQLAlchemy()
 
-class Join(db.Model):
+class Team(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String)
     email = db.Column(db.String)

@@ -4,9 +4,10 @@ import os  # for delete qrcode images after create a new ticket
 from PIL import Image  # for merging images
 import secrets
 from email_validator import validate_email, EmailNotValidError
-from telegram import Logger
+from pkg.telegram import Logger
 from dotenv import load_dotenv
-from models import Join, Ticket, db
+from models.models import Team, Ticket, db
+from io import BytesIO
 
 
 load_dotenv()
@@ -24,20 +25,18 @@ def generate_qrcode(url):
     the file after the ticket is created.
     """
 
-    filename = str(time.time())
+    buffer = BytesIO()
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
         border=4,)
     qr.add_data(url)
-    qr.make(fit=True)
+    f = qr.make(fit=True)
     img = qr.make_image(back_color=(255, 195, 235), fill_color=(55, 95, 35))
-    img.save(f"./static/assets/{filename}.jpg")
-    return filename
-
-
-""" Generate TICKET IMAGE """
+    img.save(buffer)
+    buffer.seek(0)
+    return buffer
 
 
 def get_ticket_image(ticket_no):
@@ -48,16 +47,10 @@ def get_ticket_image(ticket_no):
             f"http://127.0.0.1:5000/ticket?ticketNo={ticket_no}")
         img = Image.open("./static/assets/ticket.jpg")
         img.paste(Image.open(
-            f"./static/assets/{file}.jpg").resize((1500, 1500)), (3750, 170))
+            file).resize((1500, 1500)), (3750, 170))
         img.save(f"./static/assets/ticket-{ticket_no}.png", quality=30)
-        # TICKET CREATED
-        os.chdir("./static/assets")
-        os.remove(f"{file}.jpg")
-        os.chdir("../")
-        os.chdir("../")
-
-        # QRCODE FILE DELETED
         return f"ticket-{ticket_no}.png"
+
 
 
 """ Generate TICKET """
@@ -77,19 +70,12 @@ def generate_ticket(ticket_code, price):
     db.session.commit()
     return ticket_no
 
-def ticket_control(ticket_no):
-    if Ticket.query.filter_by(ticket_no=ticket_no).first():
-        return True
-    else:
-        return False
-
-
 
 """ FORM """
 
 
 def join_us_form(name, email, education, find_where, experience):
-    new_member = Join(name=name,
+    new_member = Team(name=name,
                       email=email,
                       education=education,
                       find_where=find_where,
@@ -106,33 +92,25 @@ def send_form_infos(name, email, education, find_where, experience):
 
 
 def name_control(name, surname):
-    if not name or not surname:
-        return False
-    if len(name) > 30 or len(surname) > 25:
-        return False
-    else:
-        return True
+    if not name or not surname: return False
+    if len(name) > 30 or len(surname) > 25: return False
+    else: return True
 
 
 def mail_control(email):
     if not email:
         return False
     try:
-        v = validate_email(email)
-        email = v["email"]
+        validator = validate_email(email)
+        email = validator.get("email")
         return True
     except EmailNotValidError:
         return False
 
 
 def logger(control, process):
-    if control:
-        with open("./logs/succesful.log", "a") as f:
+        with open(f"./logs/{control}.log", "a") as f:
             f.write(f"{process}\n")
-    else:
-        with open("./logs/failure.log", "a") as f:
-            f.write(f"{process}\n")
-
 
 
 def contact_us(email, message):
