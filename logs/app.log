@@ -1,0 +1,96 @@
+2023-05-10 02:25:35,153 ERROR: Exception on /ticket [GET] [in app.py: 1744]
+Traceback (most recent call last):
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: ticket
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/erkam/Files/Flask/Biten Projeler/Festival-Ticket System/apps/views/ticket.py", line 16, in ticket_
+    ticket = Ticket.query.filter_by(ticket_no=ticket_no).first()
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2752, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2855, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2229, in execute
+    return self._execute_internal(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2124, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 253, in orm_execute_statement
+    result = conn.execute(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/erkam/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: ticket
+[SQL: SELECT ticket.id AS ticket_id, ticket.ticket_no AS ticket_ticket_no, ticket.ticket_type AS ticket_ticket_type, ticket.price AS ticket_price, ticket.created_time AS ticket_created_time 
+FROM ticket 
+WHERE ticket.ticket_no = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('83ad067b62968032', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2023-05-10 02:37:28,797 ERROR: Exception on / [POST] [in app.py: 1744]
+Traceback (most recent call last):
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/erkam/Files/Flask/Biten Projeler/Festival-Ticket System/apps/views/home.py", line 14, in index
+    return redirect(url_for("index"))
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/helpers.py", line 256, in url_for
+    return current_app.url_for(
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/erkam/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'home.index' instead?
+2023-05-10 02:38:19,563 ERROR: Exception on / [POST] [in app.py: 1744]
+Traceback (most recent call last):
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/erkam/Files/Flask/Biten Projeler/Festival-Ticket System/apps/views/home.py", line 14, in index
+    return redirect(url_for("home.ndex"))
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/helpers.py", line 256, in url_for
+    return current_app.url_for(
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/erkam/.local/lib/python3.10/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/erkam/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'home.ndex'. Did you mean 'home.index' instead?
