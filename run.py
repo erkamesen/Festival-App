@@ -5,7 +5,8 @@ from flask_migrate import Migrate
 
 
 app = create_app(config=Config)
-Migrate(app, db)
+migrate=Migrate(app, db)
 
 
-app.run()
+if __name__ == "__main__":
+    app.run()
