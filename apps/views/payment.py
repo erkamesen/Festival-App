@@ -13,9 +13,8 @@ SENDER = os.getenv("SMTP_SENDER_MAIL")
 mail_sender = MailSender(token=KEY, sender_mail=SENDER)
 
 
-
-payment = Blueprint("payment", __name__, template_folder="../templates", static_folder="../static")
-
+payment = Blueprint("payment", __name__,
+                    template_folder="../templates", static_folder="../static")
 
 
 @payment.route("/payment/<code>", methods=["POST"])
@@ -78,21 +77,18 @@ def result():
             if datas.get("status") == "success" and datas.get("paymentStatus") == "SUCCESS":
                 payment_logger(control="successful", process=datas)
                 ticket_no = generate_ticket(
-                    ticket_code=ticket_datas.get("ticket_type"), price=ticket_datas.get("price"))
+                    ticket_type=ticket_datas.get("ticket_type"), price=ticket_datas.get("price"))
                 mail_sender.send_ticket(receiver=user_datas.get("email"), name=user_datas.get("name"),
                                         link=f"http://127.0.0.1:5000/ticket?ticketNo={ticket_no}")
                 return redirect(url_for("ticket.ticket_", ticketNo=ticket_no))
 
             else:
                 error_code = datas.get("errorCode", "10000")
-                error_message = datas.get("errorMessage", "Bir sorun ile karlsilastik... Tekrar dene veya yardim al.")
+                error_message = datas.get(
+                    "errorMessage", "Bir sorun ile karlsilastik... Tekrar dene veya yardim al.")
                 flash(f"{error_code}-{error_message}")
                 payment_logger(control="failure", process=datas)
                 return render_template("404.html")
 
         else:
             return render_template("404.html")
-
-
-
-
